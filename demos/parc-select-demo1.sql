@@ -18,3 +18,5 @@ SELECT * from visiteurs where prenom like '%Lucie%'
 						OR prenom like '%Hugo%'
 						OR prenom like '%Mathis%'
 						OR prenom like '%Sophie%';
+
+SELECT * from visiteurs where prenom NOT IN ('Lucie', 'Hugo', 'Mathis', 'Sophie');
