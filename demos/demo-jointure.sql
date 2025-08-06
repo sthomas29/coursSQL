@@ -41,6 +41,24 @@ select * from conges c
 	inner join personnels p on c.id_personnel = p.id
 	where p.nom='mercier' and p.prenom='camille';
 
+-- Exemple de requête LEFT JOIN
+-- Je veux récupérer la liste des congés pris par le personnel mais
+--je veux aussi récupérer ceux qui n'ont pas encore pris de congés.
+
+select p.nom, p.prenom, count(c.id_personnel) as 'Nb Congés pris' from personnels p
+	left join conges c on p.id = c.id_personnel
+	group by p.nom, p.prenom; 
+
+-- Je veux afficher le nb de congés pris par chaque personnel.
+select p.nom, p.prenom, count(c.id_personnel) as 'Nb Congés pris' from personnels p
+	inner join conges c on p.id = c.id_personnel
+	group by p.nom, p.prenom;
+
+-- Exemple de requête RIGHT JOIN
+select p.nom, p.prenom, count(c.id_personnel) as 'Nb Congés pris' from conges c
+	right join personnels p on p.id = c.id_personnel
+	group by p.nom, p.prenom; 
+
 
 
 
