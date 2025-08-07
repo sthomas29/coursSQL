@@ -28,9 +28,24 @@ delete from conges where id_personnel=18;
 -- Suppression des congés de Camille à partir de son nom et de son prénom
 delete from conges where id_personnel=(select id from personnels where nom='Mercier' and prenom='Camille');
 
-delete from personnels where poste like'%responsable%';
 select * from personnels where poste like'%responsable%';
 
+-- Début d'une transaction
+begin tran
+	delete from personnels where poste like'%responsable%';
+	NB_DE_REQUETES = 1
+	delete from conges where id_personnel=(select id from personnels where nom='Mercier' and prenom='Camille');
+	NB_DE_REQUETES = 2
+	select * from personnels where poste like'%responsable%';
+	NB_DE_REQUETES = 3
+
+--SI valeur du nb de transaction est = à 3, alors
+-- êtes-vous sûr de supprimer les responsables du PARC ?
+	commit tran
+--SINON 
+	rollback tran
+
+select * from personnels where poste like'%responsable%';
 
 select p.nom, p.prenom from personnels p
 	inner join conges c on p.id = c.id_personnel 
