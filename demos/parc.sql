@@ -56,8 +56,6 @@ CREATE TABLE conges (
   FOREIGN KEY (id_personnel) REFERENCES personnels(id)
 );
 
-
-
 --Insertion
 --Table "Attractions"
 
@@ -90,9 +88,6 @@ VALUES
 -- Je réactive l'auto-incrément sur la PK
 SET IDENTITY_INSERT attractions OFF
 
-INSERT INTO attractions (nom, type, taille_minimale_requise, capacite, duree_moyenne_attente)
-VALUES
-('Montagnes Italiennes', 'Manèges à sensations très fortes', 150, 10, 5);
 
 
 -- Table "Visiteurs"

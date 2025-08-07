@@ -20,7 +20,7 @@ insert personnels VALUES ('Dupont', 'Alice', 'Comédienne', 2000);
 select * from personnels where prenom='Alice';
 
 -- L'ordre n'est pas respecté et les valeurs renseignées sont donc insérées n'importe comment.
-insert personnels VALUES ( '2000', 'Alice','Pas de métier', 0 );
+insert personnels VALUES ( '2000', 'Alice','Pas de métier', 0);
 select * from personnels where nom='2000';
 
 -- suppression de l'enregistrement erroné ci-dessus
