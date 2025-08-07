@@ -4,6 +4,11 @@ Démo manipulation des données
 use parc
 go
 
+
+INSERT INTO attractions (nom, type, taille_minimale_requise, capacite, duree_moyenne_attente)
+VALUES
+('Montagnes Italiennes', 'Manèges à sensations très fortes', 150, 10, 5);
+
 -- Into et liste des colonnes ==> facultatif
 -- Mais dans les bonnes pratiques, on précise toujours la liste, l'ordre des valeurs 
 -- insérées devant respecter l'ordre des colonnes indiquées
