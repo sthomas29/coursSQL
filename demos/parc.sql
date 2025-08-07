@@ -1,5 +1,9 @@
 USE PARC
 GO
+print 'Script PARC'
+
+alter table adresses
+	drop constraint fk_adresse_personnel;
 
 --Suppression des tables si elles existent afin de les recréer
 DROP TABLE IF EXISTS attractions;
